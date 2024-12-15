@@ -7,9 +7,12 @@ WORKDIR /app
 # Copy application files
 COPY . /app
 
-# Install dependencies
+# Install dependencies (handle the case if requirements.txt exists)
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN if [ -f "requirements.txt" ]; then pip install -r requirements.txt; fi
+
+# Ensure app.py is executable
+RUN chmod +x app.py
 
 # Expose port 80
 EXPOSE 80
