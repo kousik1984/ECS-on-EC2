@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello, World! This is a Flask app running on ECS."
+    return "Hello, World! This is a Flask app running on ECS Through Code Pipeline."
 
 @app.route("/health")
 def health():
